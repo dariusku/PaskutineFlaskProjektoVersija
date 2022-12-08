@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-light text-center">Patiekalo kūrimas</h1>
+<div class="container text-center w-50 p-1">
+<form method="post">
+
+    {{form.hidden_tag()}}
+    <div class="form-group">
+        {{form.patiekalo_pavadinimas.label(class = " text-light form-control-label")}}
+        {{form.patiekalo_pavadinimas(class = "form-control")}}
+
+    </div>
+    <div class="form-group">
+        {{form.patiekalo_tipas.label(class = " text-light form-control-label")}}
+        {{form.patiekalo_tipas(class = "form-control")}}
+
+    </div>
+    <div class="form-group">
+        {{form.sudetis.label(class = "text-light form-control-label")}}
+        {{form.sudetis(class = "form-control")}}
+
+    </div>
+    <br>
+    <div class="form-check">
+        {{form.alergenai.label(class = "text-light form-check-label")}}
+
+        {{form.alergenai(class = "form-check-input")}}
+
+    </div>
+    <br>
+    <div class="form-group">
+        {{form.vegetariskas.label(class = "text-light form-check-label")}}
+        {{form.vegetariskas(class = "form-check-input")}}
+
+    </div>
+    <br>
+    <div class="form-group">
+        {{form.kaina.label(class = "text-light form-control-label")}}
+        {{form.kaina(class = "form-control")}}
+
+    </div>
+    <hr>
+    <div class="form-group ">
+
+        {{form.submit(class = 'btn btn-dark d-grid gap-5 col-6 mx-auto')}}
+        <br>
+        <a class="btn btn-dark d-grid gap-5 col-6 mx-auto " href="/restorano_main" role="button">Grįžti atgal</a>
+
+    </div>
+
+
+</form>
+</div>
+
+{% endblock %}
+
+

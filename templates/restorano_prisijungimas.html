@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%block content%}
+<form method="post">
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.restorano_el_pastas.label(class = " text-light form-control-label")}}
+        <br>
+        {{form.restorano_el_pastas(class = "form-control")}}
+    </div>
+    <br>
+    <div class="form-group">
+        {{form.slaptazodis.label(class = "text-light form-control-label")}}
+        <br>
+        {{form.slaptazodis(class = "form-control")}}
+    </div>
+    <div class="form-group">
+        <br>
+        {{form.submit(class="text-light btn btn-outline-dark")}}
+    </div>
+
+</form>
+{%endblock%}
+

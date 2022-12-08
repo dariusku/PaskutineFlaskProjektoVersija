@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{%block content%}
+<h1>Restorano meniu</h1>
+{% for patiekalas in patiekalai %}
+<div class="container px-1  text-center d-flex align-content-start flex-wrap">
+        <div class="card-body text-light border border-3">
+            <h5 class="card-title">{{patiekalas.pavadinimas}}</h5>
+            <h6 class="card-subtitle mb-2">{{patiekalas.patiekalo_tipas}}</h6>
+            <p class="card-text">{{patiekalas.sudetis}}</p>
+            <p class="card-text">{{patiekalas.kaina}}</p>
+        </div>
+</div>
+
+<br>
+{%endfor%}
+{%endblock%}

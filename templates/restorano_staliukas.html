@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-light text-center">Staliuko kūrimas</h1>
+<div class="container text-center w-50 p-1">
+    <form method="post">
+
+        {{form.hidden_tag()}}
+        <div class="form-group">
+            {{form.staliukas.label(class = " text-light form-control-label")}}
+            {{form.staliukas(class = "form-control")}}
+
+        </div>
+        <div class="form-group">
+            {{form.staliuko_vietu_skaicius.label(class = " text-light form-control-label")}}
+            {{form.staliuko_vietu_skaicius(class = "form-control")}}
+
+        </div>
+        <div class="form-group">
+            {{form.vieta.label(class = "text-light form-control-label")}}
+            {{form.vieta(class = "form-control")}}
+
+        </div>
+
+        <hr>
+        <div class="form-group ">
+
+            {{form.submit(class = 'btn btn-dark d-grid gap-5 col-6 mx-auto')}}
+            <br>
+            <a class="btn btn-dark d-grid gap-5 col-6 mx-auto " href="/restorano_main" role="button">Grįžti atgal</a>
+
+        </div>
+
+
+    </form>
+</div>
+
+{% endblock %}

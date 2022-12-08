@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 class=" text-center text-light">Restorano registracija</h1>
+<form method="post">
+    {{form.hidden_tag()}}
+    <div class="container text-center">
+        <div class="row gy-3 row-cols-1">
+            <div class="col">
+                <div class="form-group">
+                    {{form.pavadinimas.label(class = " text-light form-control-label")}}
+                    {{form.pavadinimas(class = "form-control")}}
+
+                </div>
+            </div>
+
+
+            <br>
+            <div class="col">
+                <div class="form-group">
+                    {{form.restorano_el_pastas.label(class = "text-light form-control-label")}}
+                    {{form.restorano_el_pastas(class = "form-control")}}
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {{form.telefonas.label(class = "text-light form-control-label")}}
+                    {{form.telefonas(class = "form-control")}}
+
+                </div>
+            </div>
+            <br>
+
+            <div class="col">
+                <div class="form-group">
+                    {{form.slaptazodis.label(class = "text-light form-control-label")}}
+                    {{form.slaptazodis(class = "form-control")}}
+
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    {{form.patvirtintas_slaptazodis.label(class="text-light form-control-label")}}
+                    {{form.patvirtintas_slaptazodis(class="form-control")}}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group ">
+
+            {{form.submit(class = 'btn btn-dark d-grid gap-5 col-6 mx-auto')}}
+            <br>
+            <a class="btn btn-dark d-grid gap-5 col-6 mx-auto " href="/" role="button">Grįžti atgal</a>
+
+        </div>
+    </div>
+</form>
+{%endblock%}

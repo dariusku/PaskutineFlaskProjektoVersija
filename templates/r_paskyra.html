@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{%block content%}
+
+<div class="container px-1  text-center d-flex align-content-start flex-wrap">
+
+
+        <div class="card-body text-light border border-3">
+            <h5>Jūsų pavadinimas:</h5>
+            <h5 class="card-title">{{restoranas.title}}</h5>
+             <h5>Jūsų email:</h5>
+            <h5 class="card-title">{{restoranas.email}}</h5>
+             <h5>Jūsų telefonas:</h5>
+            <p class="card-text">{{restoranas.telefonas}}</p>
+
+        </div>
+
+
+
+</div>
+
+<br>
+
+{%endblock%}
