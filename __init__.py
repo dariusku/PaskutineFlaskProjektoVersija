@@ -43,12 +43,10 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(id):
-        return Klientas.query.get(int(id))
-
-    @login_manager.user_loader
-    def load_r_user(id):
-        return Restoranas.query.get(int(id))
-
+        if Klientas:
+            return Klientas.query.get(int(id))
+        elif Restoranas:
+            return Restoranas.query.get(int(id))
     return app
 
 

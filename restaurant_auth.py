@@ -29,10 +29,5 @@ def res_registruotis():
             flash('Restoranas su tokiu pavadinimu jau egzistuoja', 'warning')
             return redirect((url_for('rest_auth.res_registruotis')))
         return redirect(url_for('rest_auth.rest_login'))
-    flash('Įvyko klaida. Patikrinkite įvestus duomenis ir bandykite vėl.')
     return render_template('restorano_reg.html', form=form)
 
-@r_auth.route('/r_atsijungti')
-def r_atsijungti():
-    logout_user()
-    return redirect(url_for('base_routes.index'))

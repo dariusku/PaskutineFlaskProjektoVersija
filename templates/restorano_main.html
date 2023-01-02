@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 
-<br><h3>Sveiki, {{current_user.title}}</h3>
+
 <br>
 
 <div class="d-grid gap-5 col-6 mx-auto ">
@@ -9,10 +9,10 @@
     <a class="btn btn-dark " href="/patiekalas" role="button">Pridėti patiekalą</a>
     <a class="btn btn-dark " href="/restorano_staliukas" role="button">Pridėti staliuką</a>
     <a class="btn btn-dark " href="{{url_for('restaurant.prideti_taloneli')}}" role="button">Pridėti talonėlį</a>
-    <a class="btn btn-dark " href="/restorano_staliukas" role="button">Peržiūrėti atsiliepimus</a>
-    <a class="btn btn-dark " href="/rezervacijos" role="button">Peržiūrėti rezervacijas</a>
+    <a class="btn btn-dark " href="/restorano_main" role="button">Peržiūrėti atsiliepimus</a>
+    <a class="btn btn-dark " href="/restorano_main" role="button">Peržiūrėti rezervacijas</a>
     <a class="btn btn-dark " href="/restorano_meniu" role="button">Peržiūrėti meniu</a>
-    <a class="btn btn-dark " href="{{url_for('rest_auth.r_atsijungti')}}" role="button">Atsijungti</a>
+    <a class="btn btn-dark " href="{{url_for('c_auth.atsijungti')}}" role="button">Atsijungti</a>
 
 </div>
 

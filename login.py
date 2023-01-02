@@ -19,6 +19,9 @@ def prisijungti():
         if user and bcrypt.check_password_hash(user.slaptazodis, form.slaptazodis.data):
             login_user(user, remember=form.prisiminti.data)
             return redirect(url_for('client.kliento_main'))
+            from . import db
+            db.session.add(klientas)
+            db.session.commit()
         else:
             flash('Nesekmingas prisijungtimas. Patikrinkite el.pasta ir slaptazodi.', 'danger')
     return render_template('prisijungti.html', form=form)
@@ -27,18 +30,18 @@ def prisijungti():
 # Restorano prisijungimas
 @r_auth.route('/restorano_prisijungimas', methods=['POST', 'GET'])
 def rest_login():
+    import forms
     if current_user.is_authenticated:
         return redirect(url_for('restaurant.rest_main'))
-    import forms
     form = forms.RestoranoPrisijungimoForma()
     if form.validate_on_submit():
-            restoranas = Restoranas.query.filter_by(email=form.restorano_el_pastas.data).first()
-            if restoranas and bcrypt.check_password_hash(restoranas.slaptazodis, form.slaptazodis.data):
-                login_user(restoranas, remember=form.prisiminti.data)
-            return redirect(url_for('restaurant.rest_main'))
-            from . import db
-            db.session.add(restoranas)
-            db.session.commit()
-            flash('Sekmingai prisiregistravote! Galite prisijungti', 'success')
+        user = Restoranas.query.filter_by(email=form.restorano_el_pastas.data).first()
+        if user and bcrypt.check_password_hash(user.slaptazodis, form.slaptazodis.data):
+            login_user(user, remember=form.prisiminti.data)
+        return redirect(url_for('restaurant.rest_main'))
+        from . import db
+        db.session.add(restoranas)
+        db.session.commit()
+        flash('Sekmingai prisiregistravote! Galite prisijungti', 'success')
     return render_template('restorano_prisijungimas.html', form=form)
 

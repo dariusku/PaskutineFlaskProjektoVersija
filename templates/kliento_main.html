@@ -1,7 +1,6 @@
 {%extends 'base.html'%}
 {%block content%}
 <br>
-<h1>Sveiki, {{current_user}}!</h1>
 <br>
 <br>
 <br>
@@ -10,7 +9,7 @@
     <a class="btn btn-dark " href="/paskyra" role="button">Paskyra</a>
     <a class="btn btn-dark " href="/rezervacijos" role="button">Rezervacijos</a>
     <a class="btn btn-dark " href="/klientui_meniu" role="button">Restorano meniu</a>
-    <a class="btn btn-dark " href="/" role="button">Atsijungti</a>
+    <a class="btn btn-dark " href="{{url_for('c_auth.atsijungti')}}" role="button">Atsijungti</a>
 
 </div>
 
