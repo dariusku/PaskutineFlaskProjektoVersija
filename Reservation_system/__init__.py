@@ -1,7 +1,9 @@
 from flask import Flask
-from flask_login import LoginManager, login_manager
+from flask_login import LoginManager
+from flask_admin import Admin
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_admin.contrib.sqla import ModelView
 import os
 
 db = SQLAlchemy()
@@ -17,6 +19,10 @@ def create_app():
     app.config['SECRET_KEY'] = 'mysecretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, ' data.sqlite')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
+    admin = Admin(app, name='admin', template_mode='bootstrap3')
+    from .models import Klientas, Restoranas
+    admin.add_view(ModelView(Klientas, db.session))
     db.init_app(app)
 
     migrate = Migrate(app, db)
@@ -34,7 +40,7 @@ def create_app():
     app.register_blueprint(r_auth, url_prefix='/')
     app.register_blueprint(restaurant, url_prefix='/')
     app.register_blueprint(login, url_prefix='/')
-    from .models import Klientas,Restoranas
+
     create_db(app)
 
     login_manager = LoginManager()

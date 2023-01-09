@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, flash
-from flask_login import login_required, login_manager, current_user
+from flask_login import login_required, current_user
 from sqlalchemy.exc import IntegrityError
 from Reservation_system.models import Restoranas, Patiekalas, Staliukas
 

@@ -2,7 +2,7 @@ from flask import render_template, Blueprint, flash
 from flask_login import login_required, current_user
 from sqlalchemy.exc import IntegrityError
 
-from Reservation_system.models import Klientas, Patiekalas, Staliukas, Rezervacijos_talonelis
+from Reservation_system.models import Klientas, Patiekalas, Rezervacijos_talonelis
 
 client = Blueprint('client', __name__)
 

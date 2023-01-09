@@ -1,7 +1,7 @@
 import bcrypt
 from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_bcrypt import Bcrypt
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user
 from Reservation_system.models import Restoranas
 from sqlalchemy.exc import IntegrityError
 
